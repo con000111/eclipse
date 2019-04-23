@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>UAV社区-注册</title>
+		<link rel="stylesheet" href="css/canvas.css" />
+		<link rel="stylesheet" href="lib4/bootstrap.css" />
+		<link rel="stylesheet" href="css/comment.css" />
+		
+	</head>
+	<body>
+        <div id="bg">
+		<canvas></canvas>
+		<canvas></canvas>
+		<canvas></canvas>
+		</div>	
+		<div id="regback" >
+			<form id="reginfo" action="UserServlet?method=register" method="post">
+  <div class="form-group">
+	<div id="logfont">注册</div>
+    <label for="exampleInputEmail1">用户名</label>
+    <input type="text"  class="form-control"  name="username" aria-describedby="emailHelp" placeholder="请输入用户名" onmouseout="cfyz()">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">密码</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+  </div>
+  <div class="form-group">
+  <label for="exampleInputPassword1">再次输入密码</label>
+  <input type="password" class="form-control" id="password1" name="password1" placeholder="请输入密码">
+  </div>
+  
+  <div class="form-group" >
+  <label for="exampleInputPassword1">验证码</label>
+  <input style="width: 40%;" class="form-control"  type="text" placeholder="请输入验证码" name="inputCode" onchange="validateCode()"/>
+  <div>
+  <img name="image" id="myImage" src="VerifyCode"  onclick="this.src=this.src+'?'">
+  <a href="javascript:myImage.onclick()">换一张</a>
+  </div>
+  </div>
+   
+  
+  <button type="submit" class="btn btn-primary subbot">注册</button>
+</form>
+        <small id="emailHelp" class="form-text text-muted" style="float: right;margin-bottom: 25px;">已有账号?<a  href="login.html">马上登陆!</a></small>
+		</div>
+		
+		
+		<script type="text/javascript" src="lib4/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="js/canvas.js"></script>
+        <script  src="js/jquery.validate.js"></script>
+		<script  src="js/reginfo.js"></script>
+	</body>
+	<script>
+	function cfyz(){
+	
+	}
+
+	</script>
+</html>

@@ -1,0 +1,25 @@
+#logback{
+	width: 350px;
+	height: 400px;
+	background: url(../img/back.png);
+	margin: auto;
+	margin-top: 5%;
+	padding: 20px;
+	border-radius: 10px;
+}
+#logfont{
+	text-align: center;
+	font-size: 30px;
+}
+.subbot{
+	margin-left:40% ;
+}
+#regback{
+	width: 350px;
+	height: auto;
+	background: url(../img/back.png);
+	margin: auto;
+	margin-top: 5%;
+	padding: 20px;
+	border-radius: 10px;
+}

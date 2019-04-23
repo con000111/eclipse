@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../layui/layui.css">
+	<link rel="stylesheet" type="text/css" href="../../bstrap/bootstrap.css">
+</head>
+<style type="text/css">
+html,body{
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	overflow:auto;
+}
+</style>
+<body  >
+
+		<ul class="layui-nav layui-bg-cyan" style="margin:0px">
+			<div style="padding:0 5%  0 5% ;">
+				<img src="img/logo.png">
+				<li class="layui-nav-item layui-this"><a href="index.html">首页</a></li>
+				<li class="layui-nav-item"><a href="">论坛</a></li>
+				<li class="layui-nav-item"><a href="">问答</a></li>
+				<li class="layui-nav-item">
+					<a href="javascript:;">版块</a>
+					<dl class="layui-nav-child">
+						<dd><a href="">移动模块</a></dd>
+						<dd><a href="">后台模版</a></dd>
+						<dd><a href="">电商平台</a></dd>
+					</dl>
+				</li>
+				<li class="layui-nav-item"><a href="">社区</a></li>
+				<div style="display: inline;margin-left: 15%"></div>
+
+				<form class="form-inline my-2 my-lg-0" style="width: 20%;display: inline;">
+					<input class="form-control mr-sm-2" type="search" placeholder="请输入搜索的内容">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="window.location.href='search.html'" >搜索</button>
+				</form>
+				<hr style="width: 0px;height: 30px;border: 1px solid white;display: inline;margin:5px">
+				<button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='login.html'">登陆</button>
+
+				<button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='register.html'" >注册</button>
+
+			</div>
+		</ul>
+	</div>
+	<div style="width: 15%;height: 100%;float: left;display: inline;">
+	<ul class="layui-nav layui-nav-tree layui-bg-cyan layui-inline" lay-filter="demo" style="height: 100%">
+		<li class="layui-nav-item layui-nav-itemed">
+			<a href="javascript:;" onclick="user()">用户管理</a>
+			<dl class="layui-nav-child">
+				<dd><a href="javascript:;" onclick="comm()">普通用户</a></dd>
+				<dd><a href="javascript:;" onclick="moder()">版主</a></dd>
+			</dl>
+		</li>
+		<li class="layui-nav-item">
+			<a href="javascript:;" onclick="post()">帖子管理</a>
+			<dl class="layui-nav-child">
+				<dd><a href="javascript:void(0)" onclick="cpost()">普通贴</a></dd>
+				<dd><a href="javascript:void(0)" onclick="hpost()">热门贴</a></dd>
+				<dd><a href="javascript:void(0)" onclick="tpost()">置顶帖</a></dd>
+			</dl>
+		</li>
+		<li class="layui-nav-item"><a href="javascript:void(0)" onclick="discuss()">评论管理</a></li>
+		<li class="layui-nav-item"><a href="search.html">社区</a></li>
+	</ul>
+    </div>
+
+	<iframe id="123" style="width: 85%;height: 90%"></iframe>
+
+
+</body>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script>
+	layui.use('element', function(){
+  var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+  
+
+  element.on('nav(demo)', function(elem){
+    //console.log(elem)
+    layer.msg(elem.text());
+});
+});
+</script>
+</html>
+<script type="text/javascript">
+	function user(){
+	var iframe=document.getElementsByTagName("iframe");
+	iframe[0].src="manage/user.html";
+	}
+	function comm(){
+	var iframe=document.getElementsByTagName("iframe");
+	iframe[0].src="umanage.html";
+	}
+	
+	function moder(){
+	var iframe=document.getElementsByTagName("iframe");
+	iframe[0].src="manage/post.html";
+	}
+	function post(){
+	var iframe=document.getElementsByTagName("iframe");
+	iframe[0].src="manage/discuss.html";
+	}
+	function cpost(){
+	var iframe=document.getElementsByTagName("iframe");
+	iframe[0].src="manage/discuss.html";
+	}
+	function hpost(){
+	var iframe=document.getElementsByTagName("iframe");
+	iframe[0].src="manage/discuss.html";
+	}
+	function tpost(){
+	var iframe=document.getElementsByTagName("iframe");
+	iframe[0].src="manage/discuss.html";
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+  <title>UAV-管理</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="layui/layui.css">
+</head>
+<body>
+<jsp:include page="../view/nav.jsp" flush="true"/>
+
+  <ul class="layui-nav layui-nav-tree layui-bg-cyan layui-inline" lay-filter="demo" style="height: 100%">
+    <li class="layui-nav-item layui-nav-itemed">
+      <a href="javascript:;" onclick="user()">用户管理</a>
+      <dl class="layui-nav-child">
+        <dd><a href="javascript:;" onclick="comm()">普通用户</a></dd>
+        <dd><a href="javascript:;" onclick="moder()">版主</a></dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item">
+      <a href="javascript:;" onclick="post()">帖子管理</a>
+      <dl class="layui-nav-child">
+        <dd><a href="javascript:void(0)" onclick="cpost()">普通贴</a></dd>
+        <dd><a href="javascript:void(0)" onclick="hpost()">热门贴</a></dd>
+        <dd><a href="javascript:void(0)" onclick="tpost()">置顶帖</a></dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item"><a href="javascript:void(0)" onclick="discuss()">评论管理</a></li>
+    <li class="layui-nav-item"><a href="search.html">社区</a></li>
+  </ul>
+
+  <jsp:include page="../view/admin.html" flush="true"/>
+</body>
+</html>

@@ -1,0 +1,31 @@
+$().ready(function(){
+	$("#reginfo").validate({
+		rules:{
+			username:{
+				required:true,
+				minlength:1
+			},
+			password:{
+				required:true,
+				minlength:6
+			},
+			password1:{
+				required:true,
+				equalTo:"#password"
+			}},
+		messages:{
+			username:{
+				required:"用户名不位空",
+				minlength:"用户名不能小于1位"
+			},
+			password:{
+				required:"密码不能位空",
+				minlength:"密码不能小于6位"
+			},
+			password1:{
+				required:"重复密码不能位空",
+				equalTo:"两次密码不一致"
+			}
+		}
+	});
+});

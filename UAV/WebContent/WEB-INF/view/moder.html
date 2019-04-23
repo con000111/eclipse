@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="layui/layui.css"  media="all">
+  <style type="text/css">
+   html,body{
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	overflow:auto;
+}
+</style>
+</head>
+
+<body>
+<div class="layui-row">
+ <div class="layui-col-md3" style="width:15%;">
+      <ul class="layui-nav layui-nav-tree layui-bg-cyan layui-inline" lay-filter="demo" style="height: 700px">
+
+    <li class="layui-nav-item">
+      <a href="javascript:;" onclick="post()">帖子管理</a>
+      <dl class="layui-nav-child">
+        <dd><a href="javascript:void(0)" onclick="spost()">搜索帖子</a></dd>
+        <dd><a href="javascript:void(0)" onclick="upost()">待审批帖</a></dd>
+        <dd><a href="action?url=WEB-INF/moder/addteach.jsp" target="_blank">发布教程</a></dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item"><a href="javascript:void(0)" onclick="discuss()">评论管理</a>
+      <dl class="layui-nav-child">
+        
+        <dd><a href="javascript:void(0)" onclick="dealreport()">举报处理</a></dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item"><a href="javascript:void(0)" onclick="judwork()">审核作品</a>
+
+    </li>
+
+  </ul>
+    </div>
+    <div class="layui-col-md9" style="width:84%;">
+ <table class="layui-hide" id="admin" lay-filter="admin" lay-data="{id: 'reload'}"></table>
+    </div>
+  </div>
+ 
+ </div>
+
+
+<script type="text/html" id="toolbarDemo">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+    <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+    <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+  </div>
+</script>
+ 
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-xs" lay-event="edit">更新</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+  <a class="layui-btn layui-btn-xs" lay-event="totop">置顶</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="notop">取消置顶</a>
+</script>
+<script type="text/html" id="upost">
+  <a class="layui-btn layui-btn-xs" lay-event="see">查看</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="pass">通过</a>
+<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="lost">未通过</a>
+</script>
+<script type="text/html" id="discussbar">
+  <a class="layui-btn layui-btn-xs" lay-event="edit">更新</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script type="text/html" id="reportdisc">
+<a class="layui-btn layui-btn-xs" lay-event="see">查看</a>
+<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除此评</a>
+<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="ban">阈值归零</a>
+</script>
+              
+ <a  href="action?url=WEB-INF/page/addposts.jsp" id="myhidden" type="hidden"></a>         
+<script src="layui/layui.js" charset="utf-8"></script>
+<script src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/moder.js">
+
+</script>
+
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+  
+});
+</script>
+</body>
+</html>
+<!-- 模态框 -->
+<div id="user" style="display: none;">
+<form class="layui-form" action="Manage" type="post" style="margin-top:20px">
+  <div class="layui-form-item">
+  <input type="hidden" name="method" value="adduser">
+    <label class="layui-form-label">用户名</label>
+    <div class="layui-input-block">
+      <input type="text" name="username" style="width:70%" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  
+    <div class="layui-form-item">
+    <label class="layui-form-label">密码</label>
+    <div class="layui-input-block">
+      <input type="text" name="password" style="width:70%" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+    <button class="layui-btn" lay-submit="" lay-filter="demo1" style="margin-left:140px">立即提交</button>
+    </form> 
+</div>
+<script type="text/javascript">
+function suser(){
+    layui.use(['layer'],function () {
+        var layer = layui.layer,$=layui.$;
+        layer.open({
+            type:1,//类型
+            area:['400px','250px'],//定义宽和高
+            title:'搜索用户',//题目
+            shadeClose:false,//点击遮罩层关闭
+            content: $('#suser')//打开的内容
+        });
+    })
+}
+function spost(){
+    layui.use(['layer'],function () {
+        var layer = layui.layer,$=layui.$;
+        layer.open({
+            type:1,//类型
+            area:['400px','250px'],//定义宽和高
+            title:'搜索帖子',//题目
+            shadeClose:false,//点击遮罩层关闭
+            content: $('#spost')//打开的内容
+        });
+    })
+}
+</script>
+<div id="suser" style="display: none;">
+  <div class="layui-form-item" style="margin-top:10px">
+    <div class="layui-input-block">
+      <input type="text" id="ukey" style="width:70%" required placeholder="请输入用户名或昵称" autocomplete="off" class="layui-input">
+    </div>
+    <button class="layui-btn" onclick="usubmit()" style="margin-left:160px">搜索</button>
+  </div>
+    
+</div>
+
+
+<div id="spost" style="display: none;">
+  <div class="layui-form-item" style="margin-top:10px">
+    <div class="layui-input-block">
+      <input type="text" id="pkey" style="width:70%" required placeholder="请输入帖子主题或作者ID" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+    <button class="layui-btn" onclick="psubmit()" style="margin-left:160px">搜索</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+

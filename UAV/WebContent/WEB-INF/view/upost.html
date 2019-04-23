@@ -1,0 +1,59 @@
+
+<ul id="mypost">
+
+</ul>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+	$.ajax({
+		url:'UserServlet?method=mypost',
+		statusCode:{
+			404:function(){
+				alert("404");
+			},
+			500:function(){
+				alert("500");
+			}
+			
+		},
+		success:function(data,textStatus){
+			var mydata=data,
+			output=[];
+            $.each(data,function(key,value){
+	        output.push('<li><a style="float:left;" href="UserServlet?method=detailpost&pid='+value.pid+'&where=detail" target="_blank">'+value.subjects+'</a><span style="float:right;">'+value.date+'</span></li>');
+           });
+           $("#mypost").html(output.join(''));
+	       }
+	})
+
+/*	var data = [
+{
+    "MachineID":"171914",
+    "Cost":"13,642.41",
+    "Currency":"PHP"
+},
+{
+    "MachineID":"172233",
+    "Cost":"1,367.73",
+    "Currency":"PHP"
+},
+{
+    "MachineID":"41116",
+    "Cost":"2,608.20",
+    "Currency":"PHP"
+},
+{
+    "MachineID":"178077",
+    "Cost":"1,517.04",
+    "Currency":"PHP"},
+{
+    "MachineID":"176430",
+    "Cost":"20,876.72",
+    "Currency":"PHP"
+}
+],
+output=[];
+$.each(data,function(key,value){
+	output.push('<li>'+value.Cost+'</li>');
+});
+$("ul").html(output.join(''));*/
+</script>

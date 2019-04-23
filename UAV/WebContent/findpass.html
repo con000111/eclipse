@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UAV社区-找回密码</title>
+    <link rel="stylesheet" href="css/canvas.css" />
+    <link rel="stylesheet" href="lib4/bootstrap.css" />
+    <link rel="stylesheet" href="css/comment.css" />
+    
+  </head>
+  <body>
+        <div id="bg">
+    <canvas></canvas>
+    <canvas></canvas>
+    <canvas></canvas>
+    </div>  
+    <div id="regback" >
+     <div class="form-group">
+    <label for="exampleInputEmail1">用户名</label>
+    <form action="UserServlet?method=findpass" method="post">
+    <input type="text"  class="form-control" id="exampleInputEmail1" required name="username" placeholder="请输入用户名" ">
+    <button type="submit" class="btn btn-primary subbot" style="margin-top:10px">下一步</button>
+    </form>
+  </div>
+  
+    </div>
+    
+    
+    <script type="text/javascript" src="lib4/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+        <script  src="js/jquery.validate.js"></script>
+    <script  src="js/reginfo.js"></script>
+  </body>
+  </html>
