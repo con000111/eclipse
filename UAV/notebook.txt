@@ -1,18 +1,19 @@
-spring:control，使用基本的JavaBean完成以前只能有EJB完成的事情
-struts:action，提供model、view、controller对应组件
-本质：servlet
-Hibernate是一个开源对象关系映射框架JDBC对象封装
+spring:control锛屼娇鐢ㄥ熀鏈殑JavaBean瀹屾垚浠ュ墠鍙兘鏈塃JB瀹屾垚鐨勪簨鎯�
+struts:action锛屾彁渚沵odel銆乿iew銆乧ontroller瀵瑰簲缁勪欢
+鏈川锛歴ervlet
+Hibernate鏄竴涓紑婧愬璞″叧绯绘槧灏勬鏋禞DBC瀵硅薄灏佽
 
 
 c:forEach
 c:if
-Model:由ActionForm和JavaBean组成其中ActionForm用于封装用户的请求参数，封装成ActionForm对象，该对象被ActionServlet转发给Action，Action根据ActionForm里面的请求参数处理用户的请求。
-JavaBean则封装了底层的业务逻辑，包括数据库访问等。
-View：该部分采用JSP实现。
-Struts标签库，减少脚本的使用，自定义的标签库可以实现与Model的有效交互，并增加了现实功能。
-Controller：Controller组件有两个部分组成——系统核心控制器，业务逻辑控制器。
-系统核心控制器，对应上图的ActionServlet。该控制器由Struts框架提供，继承HttpServlet类，因此可以配置成标注的Servlet。该控制器负责拦截所有的HTTP请求，然后根据用户请求决定是否要转给业务逻辑控制器。
-业务逻辑控制器，负责处理用户请求，本身不具备处理能力，而是调用Model来完成处理。对应Action部分。
+Model:鐢盇ctionForm鍜孞avaBean缁勬垚鍏朵腑ActionForm鐢ㄤ簬灏佽鐢ㄦ埛鐨勮姹傚弬鏁帮紝灏佽鎴怉ctionForm瀵硅薄锛岃瀵硅薄琚獳ctionServlet杞彂缁橝ction锛孉ction鏍规嵁ActionForm閲岄潰鐨勮姹傚弬鏁板鐞嗙敤鎴风殑璇锋眰銆�
+JavaBean鍒欏皝瑁呬簡搴曞眰鐨勪笟鍔￠�昏緫锛屽寘鎷暟鎹簱璁块棶绛夈��
+View锛氳閮ㄥ垎閲囩敤JSP瀹炵幇銆�
+Struts鏍囩搴擄紝鍑忓皯鑴氭湰鐨勪娇鐢紝鑷畾涔夌殑鏍囩搴撳彲浠ュ疄鐜颁笌Model鐨勬湁鏁堜氦浜掞紝骞跺鍔犱簡鐜板疄鍔熻兘銆�
+Controller锛欳ontroller缁勪欢鏈変袱涓儴鍒嗙粍鎴愨�斺�旂郴缁熸牳蹇冩帶鍒跺櫒锛屼笟鍔￠�昏緫鎺у埗鍣ㄣ��
+绯荤粺鏍稿績鎺у埗鍣紝瀵瑰簲涓婂浘鐨凙ctionServlet銆傝鎺у埗鍣ㄧ敱Struts妗嗘灦鎻愪緵锛岀户鎵縃ttpServlet绫伙紝鍥犳鍙互閰嶇疆鎴愭爣娉ㄧ殑Servlet銆傝鎺у埗鍣ㄨ礋璐ｆ嫤鎴墍鏈夌殑HTTP璇锋眰锛岀劧鍚庢牴鎹敤鎴疯姹傚喅瀹氭槸鍚﹁杞粰涓氬姟閫昏緫鎺у埗鍣ㄣ��
+涓氬姟閫昏緫鎺у埗鍣紝璐熻矗澶勭悊鐢ㄦ埛璇锋眰锛屾湰韬笉鍏峰澶勭悊鑳藉姏锛岃�屾槸璋冪敤Model鏉ュ畬鎴愬鐞嗐�傚搴擜ction閮ㄥ垎銆�
 
 
-z-index前一个标签必须postition:absolute
+z-index鍓嶄竴涓爣绛惧繀椤籶ostition:absolute
+//subtext
